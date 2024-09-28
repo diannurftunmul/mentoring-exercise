@@ -1,137 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Excersise 2</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
-  </head>
-  <body>
-    <!-- Card -->
-    <!-- Merubah posisi Container -->
-    <div
-      class="container vh-100 d-flex justify-content-center align-items-center"
-    >
-      <div class="card shadow-lg" style="width: 50rem">
-        <div class="card-header fw-bold fs-4">
-          DATA PEKERJA:
-          <img
-            class="img-thumbnail rounded mx-auto d-block mt-3 mb-3 border-dark"
-            src="asset/pekerja.jpeg"
-            alt=""
-            style="width: 50%"
-          />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Excersise 2</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="shortcut icon" href="asset/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+  <!-- Card -->
+  <!-- Merubah posisi Container -->
+  <div class="container vh-100 d-flex justify-content-center align-items-center">
+    <div class="card shadow-lg" style="width: 50rem">
+      <div class="card-header fw-bold fs-4">
+        DATA PEKERJA:
+        <img class="img-thumbnail rounded mx-auto d-block mt-3 mb-3 border-dark" src="asset/pekerja.jpeg" alt=""
+          style="width: 50%" />
+      </div>
+      <div class="card-body">
+        <h5 class="card-title mb-3"></h5>
+        <p class="card-text fs-4">
+          Nama: <span id="cardName">Dian Nurdiansyah</span>
+        </p>
+        <p class="card-text fs-4">
+          Pekerjaan: <span id="cardJob">UX Researcher</span>
+        </p>
+      </div>
+      <!-- Merubah posisi button -->
+      <div class="card-footer d-flex justify-content-center">
+        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inputModal">Input Data Baru!</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="inputModal" tabindex="-1" aria-labelledby="inputModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inputModalLabel">Input Data Baru:</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="card-body">
-          <h5 class="card-title mb-3"></h5>
-          <p class="card-text fs-4">
-            Nama: <span id="cardName">Dian Nurdiansyah</span>
-          </p>
-          <p class="card-text fs-4">
-            Pekerjaan: <span id="cardJob">UX Researcher</span>
-          </p>
+        <div class="modal-body">
+          <form id="dataForm">
+            <div class="mb-3">
+              <label for="nameInput" class="form-label">Nama</label>
+              <input type="text" class="form-control" id="nameInput" placeholder="Masukkan nama Anda" required />
+            </div>
+            <div class="mb-3">
+              <label for="jobInput" class="form-label">Pekerjaan</label>
+              <input type="text" class="form-control" id="jobInput" placeholder="Masukkan pekerjaan Anda" required />
+            </div>
+          </form>
         </div>
-        <!-- Merubah posisi button -->
-        <div class="card-footer d-flex justify-content-center">
-          <a
-            href="#"
-            class="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#inputModal"
-            >Input Data Baru!</a
-          >
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">
+            Batal
+          </button>
+          <button type="button" class="btn btn-primary" onclick="submitData()">
+            Kirim
+          </button>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="inputModal"
-      tabindex="-1"
-      aria-labelledby="inputModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="inputModalLabel">Input Data Baru:</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form id="dataForm">
-              <div class="mb-3">
-                <label for="nameInput" class="form-label">Nama</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="nameInput"
-                  placeholder="Masukkan nama Anda"
-                  required
-                />
-              </div>
-              <div class="mb-3">
-                <label for="jobInput" class="form-label">Pekerjaan</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="jobInput"
-                  placeholder="Masukkan pekerjaan Anda"
-                  required
-                />
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-warning"
-              data-bs-dismiss="modal"
-            >
-              Batal
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              onclick="submitData()"
-            >
-              Kirim
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- Input Data -->
+  <script>
+    function submitData() {
+      const name = document.getElementById("nameInput").value;
+      const job = document.getElementById("jobInput").value;
 
-    <!-- Input Data -->
-    <script>
-      function submitData() {
-        const name = document.getElementById("nameInput").value;
-        const job = document.getElementById("jobInput").value;
+      document.getElementById("cardName").textContent = name;
+      document.getElementById("cardJob").textContent = job;
 
-        document.getElementById("cardName").textContent = name;
-        document.getElementById("cardJob").textContent = job;
+      const modal = bootstrap.Modal.getInstance(
+        document.getElementById("inputModal")
+      );
+      modal.hide();
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
 
-        const modal = bootstrap.Modal.getInstance(
-          document.getElementById("inputModal")
-        );
-        modal.hide();
-      }
-    </script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-  </body>
 </html>
